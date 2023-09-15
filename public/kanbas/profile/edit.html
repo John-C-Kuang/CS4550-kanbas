@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Edit</title>
+
+  <style>
+    td {
+      vertical-align: text-top;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <!-- Column 1 - Overall Navigation Bar -->
+    <td>
+      <ul>
+        <li><a href="index.html">Account</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="../home.html">Courses</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Inbox</a></li>
+        <li><a href="#">History</a></li>
+        <li><a href="#">Studio</a></li>
+        <li><a href="#">Commons</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </td>
+
+    <!-- Column 2 - Course-level Navigation Bar -->
+    <td>
+      <ul>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Files</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">ePortfolios</a></li>
+        <li><a href="#">Shared Content</a></li>
+        <li><a href="#">The Hub</a></li>
+        <li><a href="#">Qwickly Course Tools</a></li>
+        <li><a href="#">Global Announcements</a></li>
+      </ul>
+    </td>
+
+    <!-- Column 3: Profile Detail -->
+    <td>
+      <h2>Jose Annunziato</h2>
+
+      <label>
+        Name:*
+        <input type="text" value="Jose Annunziato">
+      </label>
+
+      <label>
+        Pronouns:
+        <select id="pronouns">
+          <option value="he/him">
+            He/Him
+          </option>
+          <option value="she/her">
+            She/Her
+          </option>
+          <option value="they/them">
+            They/Them
+          </option>
+        </select><br /><br />
+      </label>
+
+      <label>
+        Title:
+        <input type="text">
+      </label>
+
+
+      <h3>Contact</h3>
+      <p>No registered services, you can add some on the <a href="#">settings</a> page.</p>
+
+
+      <h3>Biography</h3>
+      <label>
+        Faculty, Software Engineer, AI, Space, and renewables enthusiast.<br />
+        <textarea cols="50" rows="5">Faculty, Software Engineer, AI, Space, and renewables enthusiast.</textarea><br/><br/>
+      </label>
+
+
+      <h3>Links</h3>
+      <ul>
+        <li><a href="#">Youtube</a></li>
+      </ul>
+
+      <table border="0" align="center" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center"><b>Title</b></td>
+          <td></td>
+          <td align="center"><b>URL</b></td>
+        </tr>
+        <tr>
+          <td><input type="text" value="Youtube"></td>
+          <td>&rarr;</td>
+          <td><input type="text" value="https://www.youtube.com"></td>
+        </tr>
+      </table>
+
+      <button id="add-link">Add another link</button><br />
+
+      <button id="cancel">Cancel</button>
+
+      <a href="index.html">
+        <button>Save Profile</button>
+      </a><br />
+
+      <button id="edit-profile">Edit Profile</button>
+      <button id="cancel-editing">Cancel Editing</button><br />
+
+
+    </td>
+
+
+  </tr>
+
+</table>
+
+
+</body>
+</html>
