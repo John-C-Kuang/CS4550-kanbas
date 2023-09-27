@@ -8,6 +8,13 @@
   height: 60px;
 }
 
+.sub-navigation {
+  position: absolute;
+  top: 100px;
+  left: 120px;
+  width: 200px;
+}
+
 .sub-nav-entry {
   display: flex;
   flex-direction: column;
@@ -16,7 +23,12 @@
   height: 60px;
   list-style-type: none;
   font-size: 15px;
-  margin-top: 150px;
+  margin-top: 180px;
+}
+
+.selected-side-nav-item {
+  color: black;
+  font-weight: bold;
 }
 
 .ic-icon-svg path{
@@ -41,6 +53,19 @@ body {
 .selected_nav {
   background-color: white;
 }
+
+.large-profile-icon {
+  position: absolute;
+  top: 100px;
+  left: 250px;
+}
+
+.profile-info {
+  position: absolute;
+  top: 100px;
+  left: 420px;
+}
+
 
 
 
