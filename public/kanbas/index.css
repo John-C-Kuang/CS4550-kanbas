@@ -11,16 +11,20 @@
 .sub-nav-entry {
   display: flex;
   flex-direction: column;
-  align-items: start;
   justify-content: center;
-  width: 75px;
+  width: 90px;
   height: 60px;
   list-style-type: none;
-  font-size: 16px;
+  font-size: 15px;
+  margin-top: 150px;
 }
 
 .ic-icon-svg path{
   fill: #C00;
+}
+
+.neu-red {
+  color: #C00;
 }
 
 .ic-icon-svg {
@@ -37,6 +41,7 @@ body {
 .selected_nav {
   background-color: white;
 }
+
 
 
 
