@@ -23,14 +23,14 @@
 }
 
 @media (max-width: 800px) {
-  .sub-navigation {
+  #course-home-sub-navigation {
     display: none;
   }
 }
 
 
 @media (max-width: 1200px) {
-  .right-most-items {
+  #course-home-right-most-items {
     display: none;
   }
 }
@@ -67,6 +67,10 @@ body {
 
 .selected_nav {
   background-color: white;
+}
+
+.module-subject-color {
+  background-color: #e7e6e6;
 }
 
 .large-profile-icon {
@@ -119,4 +123,20 @@ body {
 
 .module-item {
   margin-left: 20px;
+}
+
+.assignment-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.should-diplay-green-bar::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 5px;
+  background-color: green;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
