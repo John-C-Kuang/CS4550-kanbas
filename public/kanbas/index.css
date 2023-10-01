@@ -22,8 +22,21 @@
   padding-bottom: 15px;
 }
 
-@media (max-width: 665px) {
+@media (max-width: 800px) {
   .sub-navigation {
+    display: none;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .right-most-items {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #course-home-main {
     display: none;
   }
 }
