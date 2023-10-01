@@ -180,13 +180,24 @@
 
 
     <!-- Buttons -->
-    <div class="float-end p-2">
+    <div class="d-flex float-end p-2">
       <button class="btn btn-secondary btn-light">
-        <i class="fas fa-check-circle text-success px-1"></i>
-        Published
+        <i class="fas fa-file"></i>
+        Import
       </button>
+      <div class="dropdown">
+        <button style="width: 100%;"
+                class="btn btn-light dropdown-toggle btn-block text-start" type="button"
+                id="as-group-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-file-download"></i> Export
+        </button>
+
+        <ul class="dropdown-menu" aria-labelledby="export-options">
+          <!-- options  -->
+        </ul>
+      </div>
       <button class="btn btn-secondary btn-light">
-        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        <i class="fas fa-cog"></i>
       </button>
     </div>
 
@@ -233,6 +244,71 @@
 
         <div class="col-7">
           <!-- Grade -->
+
+          <div class="row my-2">
+            <div class="col-6">
+              <h5>Student Names</h5>
+              <input class="form-control" placeholder="Search Students">
+            </div>
+
+            <div class="col-6">
+              <h5>Assignment Names</h5>
+              <input class="form-control" placeholder="Search Assignments">
+            </div>
+          </div>
+
+
+          <button class="btn btn-light"><i class="fas fa-filter"></i>Apply Filters</button>
+
+
+          <div class="container mt-3">
+            <table class="table table-bordered w-100">
+              <thead>
+              <tr>
+                <th class="grade-table-cell-alignment"><p class="grade-form-col-name">Student Name</p>Out of 100</th>
+                <th class="grade-table-cell-alignment"><p class="grade-form-col-name">A1 SETUP</p>Out of 100</th>
+                <th class="grade-table-cell-alignment"><p class="grade-form-col-name">A2 HTML</p>Out of 100</th>
+                <th class="grade-table-cell-alignment"><p class="grade-form-col-name">A3 CSS</p>Out of 100</th>
+                <th class="grade-table-cell-alignment"><p class="grade-form-col-name">A4 BOOTSTRAP</p>Out of 100</th>
+              </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="grade-table-cell-alignment text-danger">Chengyi Kuang</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="100">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="98">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="99.5">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="100">%</td>
+                </tr>
+
+                <tr>
+                  <td class="grade-table-cell-alignment text-danger">Evelyn Lai</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="98">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="100">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="97.5">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="100">%</td>
+                </tr>
+
+                <tr>
+                  <td class="grade-table-cell-alignment text-danger">Kyle Oyler</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="95">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="93">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="94.5">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="99">%</td>
+                </tr>
+
+                <tr>
+                  <td class="grade-table-cell-alignment text-danger">Qing Haihu</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="80">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="70">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="90">%</td>
+                  <td class="grade-table-cell-alignment"><input class="grade-table-cell-alignment border-0 w-25" value="77">%</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
 
 
 
