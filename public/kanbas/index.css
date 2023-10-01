@@ -140,3 +140,7 @@ body {
   left: 0;
   top: 0;
 }
+
+.assignment-edit-prompt-text {
+  font-size: 16px;
+}
