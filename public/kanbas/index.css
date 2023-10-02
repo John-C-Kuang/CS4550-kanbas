@@ -154,3 +154,15 @@ body {
   text-align: center;
   vertical-align: middle;
 }
+
+.course-card-description-text {
+  font-size: 14px;
+  color: black;
+  margin: 0px;
+}
+
+.course-card-additional-description-text {
+  font-size: 10px;
+  color: grey;
+  margin: 0px;
+}
