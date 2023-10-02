@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grades</title>
+  <style>
+    td {
+      vertical-align: text-top;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <!-- Column 1 - Overall Navigation Bar -->
+    <td>
+      <ul>
+        <li><a href="profile/index.html">Account</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Inbox</a></li>
+        <li><a href="#">History</a></li>
+        <li><a href="#">Studio</a></li>
+        <li><a href="#">Commons</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </td>
+
+    <!-- Column 2 - Course-level Navigation Bar -->
+    <td>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="#">Modules</a></li>
+        <li><a href="#">Piazza</a></li>
+        <li><a href="#">Zoom Meetings</a></li>
+        <li><a href="assignments/index.html">Assignments</a></li>
+        <li><a href="#">Quizzes</a></li>
+        <li><a href="grades.html">Grades</a></li>
+        <li><a href="#">People</a></li>
+        <li><a href="#">Panopto Video</a></li>
+        <li><a href="#">Discussions</a></li>
+        <li><a href="#">Announcements</a></li>
+        <li><a href="#">Pages</a></li>
+        <li><a href="#">Files</a></li>
+        <li><a href="#">Rubrics</a></li>
+        <li><a href="#">Outcomes</a></li>
+        <li><a href="#">Collaborations</a></li>
+        <li><a href="#">Syllabus</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </td>
+
+    <!-- Column 3: Grade Detail -->
+    <td>
+      <!-- top-bar -->
+      <label for="grade-book-select"></label>
+      <select id="grade-book-select"> <option value="STUB">Grade Book</option> </select>
+      <button type="button">Import</button>
+      <label for="export-select"></label>
+      <select id="export-select"> <option value="STUB">Export</option> </select>
+      <button type="button">Configure</button>
+
+      <h3>Student Names</h3>
+      <input type="text" id="search-student-name"
+             placeholder="Search Student Name"/><br/>
+
+      <h3>Assignment Names</h3>
+      <input type="text" id="search-assignment-name"
+             placeholder="Search Assignments"/><br/><br/>
+
+      <button type="button">Apply Filters</button><br/><br/>
+
+
+      <table border="1" width="100%">
+        <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Assignment 1</th>
+          <th>Assignment 2</th>
+          <th>Assignment 3</th>
+          <th>Assignment 4</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td>Chengyi Kuang</td>
+          <td contenteditable="true">96</td>
+          <td contenteditable="true">100</td>
+          <td contenteditable="true">105</td>
+          <td contenteditable="true">98</td>
+        </tr>
+
+        <tr>
+          <td>Evelyn Lai</td>
+          <td contenteditable="true">98</td>
+          <td contenteditable="true">101</td>
+          <td contenteditable="true">95</td>
+          <td contenteditable="true">102</td>
+        </tr>
+
+        <tr>
+          <td>John Doe</td>
+          <td contenteditable="true">70</td>
+          <td contenteditable="true">65</td>
+          <td contenteditable="true">81</td>
+          <td contenteditable="true">84</td>
+        </tr>
+
+        <tr>
+          <td>Timothy Hall</td>
+          <td contenteditable="true">85</td>
+          <td contenteditable="true">86</td>
+          <td contenteditable="true">91</td>
+          <td contenteditable="true">90</td>
+        </tr>
+        </tbody>
+
+      </table>
+    </td>
+
+
+  </tr>
+
+</table>
+
+
+</body>
+</html>

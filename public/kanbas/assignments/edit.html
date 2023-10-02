@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment Edit</title>
+
+  <style>
+    td {
+      vertical-align: text-top;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <!-- Column 1 - Overall Navigation Bar -->
+    <td>
+      <ul>
+        <li><a href="../profile/index.html">Account</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Inbox</a></li>
+        <li><a href="#">History</a></li>
+        <li><a href="#">Studio</a></li>
+        <li><a href="#">Commons</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </td>
+
+    <!-- Column 2 - Course-level Navigation Bar -->
+    <td>
+      <ul>
+        <li><a href="../home.html">Home</a></li>
+        <li><a href="#">Modules</a></li>
+        <li><a href="#">Piazza</a></li>
+        <li><a href="#">Zoom Meetings</a></li>
+        <li><a href="index.html">Assignments</a></li>
+        <li><a href="#">Quizzes</a></li>
+        <li><a href="../grades.html">Grades</a></li>
+        <li><a href="#">People</a></li>
+        <li><a href="#">Panopto Video</a></li>
+        <li><a href="#">Discussions</a></li>
+        <li><a href="#">Announcements</a></li>
+        <li><a href="#">Pages</a></li>
+        <li><a href="#">Files</a></li>
+        <li><a href="#">Rubrics</a></li>
+        <li><a href="#">Outcomes</a></li>
+        <li><a href="#">Collaborations</a></li>
+        <li><a href="#">Syllabus</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </td>
+
+    <!-- Column 3: Assignment Detail -->
+    <td>
+      <!-- top-bar -->
+      <label for="edit-assignment-dates"></label>
+      <select id="edit-assignment-dates"> <option value="STUB">
+        Edit Assignment Dates
+      </option></select><br/>
+      <h3>Assignment Name</h3>
+
+      <input value="A1 - ENV + HTML"> <br /><br/>
+      <textarea cols="50" rows="20">This is the description of the assignment.</textarea><br/><br/>
+
+      <label for="points">Points:</label><br/>
+      <input id="points" max=100 min="0" value="100" type="number"><br /><br/>
+
+      <label for="assignment-group">Assignment Group</label><br/>
+      <select id="assignment-group">
+        <option value="assignments">
+          Assignments
+        </option>
+        <option value="quizzes">
+          Quizzes
+        </option>
+        <option value="exams">
+          Exams
+        </option>
+        <option value="projects">
+          Projects
+        </option>
+      </select><br /><br />
+
+      <label for="display-grade-as-group">Display Grade as</label><br/>
+      <select id="display-grade-as-group">
+        <option value="percentage">
+          Percentage
+        </option>
+        <option value="decimal">
+          Decimal
+        </option>
+      </select><br /><br />
+
+      <label for="submission-type">Submission Type</label><br/>
+      <select id="submission-type">
+        <option value="online">
+          Online
+        </option>
+        <option value="physical">
+          Physical
+        </option>
+      </select><br /><br />
+
+      <label>
+        Online Entry Options: <br />
+        <input type="checkbox" value="text entry" checked> Text Entry<br/>
+        <input type="checkbox" value="website url"> Website URL<br/>
+        <input type="checkbox" value="media recordings"> Media Recordings<br/>
+        <input type="checkbox" value="student annotation"> Student Annotation<br/>
+        <input type="checkbox" value="File Uploads"> File Uploads<br/>
+      </label><br /><br />
+
+      <label for="submission-attempts">Submission Attempts</label><br/>
+      <select id="submission-attempts">
+        <option value="unlimited">
+          Unlimited
+        </option>
+        <option value="one">
+          One
+        </option>
+        <option value="two">
+          Two
+        </option>
+      </select><br /><br />
+
+      <label>
+        Group Assignment <br />
+        <input type="checkbox" value="text entry"> This is a group assignment<br/>
+      </label><br /><br />
+
+      <label>
+        Peer Reviews <br />
+        <input type="checkbox" value="text entry"> Require Peer Reviews<br/>
+      </label><br /><br />
+
+      Assign <br />
+      <label>
+        Assign to <br />
+        <input value="Everyone"><br/>
+      </label><br /><br />
+
+      <label>
+        Due <br />
+        <input type="date" id="due-date" value="2000-01-21"/><br/>
+      </label><br />
+
+      <label>
+        Available from <br />
+        <input type="date" id="available-from-date" value="2023-09-21" min="2023-09-07" max="2023-09-28"/><br/>
+      </label><br />
+
+      <label>
+        Until <br />
+        <input type="date" id="available-until-date" value="2023-09-21" min="2023-09-07" max="2023-09-28"/><br/>
+      </label><br /><br />
+
+      <a href="index.html"><button type="button">Cancel</button></a>
+      <a href="index.html"><button type="button">Save</button></a>
+
+    </td>
+
+
+  </tr>
+
+</table>
+
+
+</body>
+</html>
