@@ -1,4 +1,5 @@
 import JavaScript from "./JavaScript";
+import PathParameters from "./PathParameters";
 
 function Assignment3() {
   console.log('Hello World!');
@@ -6,6 +7,7 @@ function Assignment3() {
       <div>
         <h1>Assignment 3</h1>
         <JavaScript />
+        <PathParameters/>
       </div>
   );
 }
