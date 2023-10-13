@@ -1,4 +1,4 @@
-const TopBar = ({course}) => (
+const TopBar = ({course, subpath}) => (
     <div className="row p-0 mt-3 mb-1 ms-2 align-items-center justify-content-center">
       <div className="col-auto p-0">
         <button className="btn btn-transparent p-2">
@@ -9,7 +9,7 @@ const TopBar = ({course}) => (
       </div>
 
       <div className="col p-0">
-        <p className="my-0" style={{fontSize: "18px"}}>{course._id} · {course.name}</p>
+        <p className="my-0" style={{fontSize: "18px"}}>{course._id} · {course.name} > <b>{subpath}</b></p>
       </div>
     </div>
 );
