@@ -1,14 +1,15 @@
-import {Link} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import db from "../Database";
 import styles from '../style';
+import Courses from "../Courses";
 
 function Dashboard() {
   const courses = db.courses;
   return (<div>
-        <h1>Dashboard</h1>
+        <h2>Dashboard</h2>
 
         <hr/>
-        <h2>Published Courses ({courses.length})</h2>
+        <h3>Published Courses ({courses.length})</h3>
 
         <div className="d-flex justify-content-start flex-row flex-wrap">
           {courses.map((course) => (
@@ -31,7 +32,8 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
-              </Link>))}
+              </Link>
+          ))}
         </div>
       </div>);
 }

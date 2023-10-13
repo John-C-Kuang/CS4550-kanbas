@@ -17,7 +17,7 @@ function KanbasNavigation() {
   ];
   const { pathname } = useLocation();
   return (
-      <div className="list-group" style={{ width: 150 }}>
+      <div className="list-group" style={{ width: 100 }}>
         {links.map((link, index) => {
           const isActive = pathname.includes(link);
           const combinedStyles = {
