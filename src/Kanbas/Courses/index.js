@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import CourseNavigation from "./CourseNavigation";
 import TopBar from "./topBar"
+import Modules from "./Modules";
 
 function Courses() {
   const {courseId} = useParams();
@@ -27,14 +28,14 @@ function Courses() {
             {/* Course Menu Routing */}
               <Routes>
                 <Route path="/" element={<Navigate to="Home"/>}/>
-                <Route path="Home" element={<h1>Home</h1>}/>
-                <Route path="Modules" element={<h1>Modules</h1>}/>
-                <Route path="Assignments" element={<h1>Assignments</h1>}/>
+                <Route path="Home" element={<h2>Home</h2>}/>
+                <Route path="Modules" element={<Modules/>}/>
+                <Route path="Assignments" element={<h2>Assignments</h2>}/>
                 <Route
                     path="Assignments/:assignmentId"
-                    element={<h1>Assignment Editor</h1>}
+                    element={<h2>Assignment Editor</h2>}
                 />
-                <Route path="Grades" element={<h1>Grades</h1>}/>
+                <Route path="Grades" element={<h2>Grades</h2>}/>
               </Routes>
 
 
