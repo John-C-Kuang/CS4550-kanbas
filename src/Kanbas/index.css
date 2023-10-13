@@ -1,0 +1,195 @@
+.parent-nav-entry .nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  width: 75px;
+  height: 60px;
+  padding-top: 3px;
+}
+
+.additional-parent-nav-entry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  width: 150px;
+  height: 60px;
+  padding-top: 3px;
+  align-items: start;
+  padding-left: 20px;
+}
+
+.sub-navigation {
+  position: absolute;
+  top: 100px;
+  left: 120px;
+  width: 200px;
+}
+
+.sub-nav-entry {
+  list-style-type: none;
+  font-size: 15px;
+}
+
+.sub-nav-entry-selected-item {
+  padding-left: 1px;
+  border-left: 2px solid black;
+}
+
+
+@media (max-width: 800px) {
+  #course-home-sub-navigation {
+    display: none;
+  }
+  #regular-parent-nav {
+    display: none;
+  }
+  #large-window-header {
+    display: none;
+  }
+  #course-home-top-btns {
+    display: none;
+  }
+}
+
+@media (min-width: 799px) {
+  #small-window-header {
+    display: none;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  #course-home-right-most-items {
+    display: none;
+  }
+}
+
+
+.selected-side-nav-item {
+  color: black;
+  font-weight: bold;
+}
+
+.ic-icon-svg path{
+  fill: #C00;
+}
+
+.neu-red {
+  color: #C00;
+}
+
+.ic-icon-svg {
+  width: 30px;
+  height: auto;
+  margin: 3px;
+}
+
+body {
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.selected_nav {
+  background-color: white;
+}
+
+.module-subject-color {
+  background-color: #e7e6e6;
+}
+
+.large-profile-icon {
+  position: absolute;
+  top: 100px;
+  left: 250px;
+}
+
+.profile-info {
+  position: absolute;
+  top: 100px;
+  left: 420px;
+}
+
+
+.flex-card-item {
+  flex-basis: calc(25% - 10px);
+  margin: 5px;
+}
+
+@media (max-width: 1000px) {
+  .flex-card-item {
+    flex-basis: calc(33.333% - 10px);
+  }
+}
+
+@media (max-width: 665px) {
+  .flex-card-item {
+    flex-basis: calc(50% - 10px);
+  }
+}
+
+.card {
+  width: 100%;
+}
+
+.breadcrumb .breadcrumb-item:not(:first-child)::before {
+  content: ">";
+}
+
+.module-subject {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.module-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.module-item {
+  margin-left: 20px;
+}
+
+.assignment-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.should-diplay-green-bar::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 5px;
+  background-color: green;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.assignment-edit-prompt-text {
+  font-size: 16px;
+}
+
+.grade-form-col-name {
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+
+.grade-table-cell-alignment {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.course-card-description-text {
+  font-size: 14px;
+  color: black;
+  margin: 0px;
+}
+
+.course-card-additional-description-text {
+  font-size: 10px;
+  color: grey;
+  margin: 0px;
+}
