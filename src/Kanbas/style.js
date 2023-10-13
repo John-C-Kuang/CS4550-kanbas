@@ -6,7 +6,7 @@ const styles = {
     justifyContent: 'center',
     backgroundColor: 'black',
     width: '75px',
-    height: '60px',
+    height: '65px',
     paddingTop: '3px'
   },
 

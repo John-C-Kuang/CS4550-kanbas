@@ -23,6 +23,7 @@ function KanbasNavigation() {
           const combinedStyles = {
             ...styles.parentNavLink,
             color: isActive ? "red" : "white",
+            fontSize: "14px"
           };
           return (
               <Link
