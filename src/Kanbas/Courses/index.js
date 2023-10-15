@@ -11,6 +11,7 @@ import TopBar from "./topBar"
 import Modules from "./Modules";
 import Home from "./Home";
 import Assignments from "./Assignments";
+import AssignmentEditor from "./Assignments/AssignmentEditor";
 
 function Courses() {
   const {courseId} = useParams();
@@ -35,7 +36,7 @@ function Courses() {
               <Route path="Assignments" element={<Assignments/>}/>
               <Route
                   path="Assignments/:assignmentId"
-                  element={<h2>Assignment Editor</h2>}
+                  element={<AssignmentEditor/>}
               />
               <Route path="Grades" element={<h2>Grades</h2>}/>
             </Routes>
