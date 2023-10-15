@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaEllipsisV, FaCaretDown, FaCheckCircle, FaPlus, FaBook } from 'react-icons/fa';
 import db from "../../Database";
+import TopButtons from "./TopButtons";
+import AssignmentEntry from "./AssignmentEntry";
 
 
 function Assignments() {
@@ -11,6 +13,10 @@ function Assignments() {
       (assignment) => assignment.course === courseId);
   return (
       <div className="col-8">
+
+
+        <TopButtons/>
+
         <ul className="list-group mt-5">
 
           {/*Assignment Title*/}
@@ -37,23 +43,11 @@ function Assignments() {
                     to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
                     className="list-group-item">
 
-                  <li className="list-group-item list-group-item-action should-diplay-green-bar">
-                    <div className="row">
-                      <div className="col-1">
-                        <FaEllipsisV />
-                        <FaBook className="text-success" />
-                      </div>
-                      <div className="col-10">
-                        <p className="assignment-title py-0 my-0">{assignment.title}</p>
-                        <p className="py-0 my-0">{assignment.course}</p>
-                        <p className="py-0 my-0">{assignment._id}</p>
-                      </div>
-                      <div className="col-1">
-                        <FaCheckCircle className="text-success" />
-                        <FaEllipsisV />
-                      </div>
-                    </div>
-                  </li>
+                  <AssignmentEntry
+                      id={assignment._id}
+                      course={assignment.course}
+                      title={assignment.title}
+                  />
 
 
                 </Link>
