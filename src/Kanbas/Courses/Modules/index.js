@@ -1,10 +1,16 @@
+import React from 'react';
 import ModuleList from "./ModuleList";
+import TopBtns from "../TopButtons";
 
 function Modules() {
   return (
-      <div>
-        <h2>Modules</h2>
-        <ModuleList />
+      <div className="col-8">
+        <div className="row justify-content-center align-items-center">
+          <TopBtns/>
+          <hr/>
+
+          <ModuleList />
+        </div>
       </div>
   );
 }
