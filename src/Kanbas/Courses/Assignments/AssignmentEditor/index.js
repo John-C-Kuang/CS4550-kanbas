@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import db from "../../../Database";
+import {FaCheckCircle} from "react-icons/fa";
+import { MdMoreVert } from 'react-icons/md';
 
 
 function AssignmentEditor() {
@@ -17,12 +19,27 @@ function AssignmentEditor() {
   };
   return (
       <div className="col-8">
-        <hr/>
+
+
+        <div className="float-end">
+          <button
+              className="btn btn-secondary btn-light"
+              style={{color: "green"}}
+          >
+            <FaCheckCircle className="text-success" /> Published
+
+          </button>
+          <button className="btn btn-secondary btn-light">
+            <MdMoreVert />
+          </button>
+        </div>
+
+
+        <hr className="mt-5"/>
 
         <h5>Assignment Name</h5>
         <input value={assignment.title}
                className="form-control mb-2" />
-
 
         <hr />
 
