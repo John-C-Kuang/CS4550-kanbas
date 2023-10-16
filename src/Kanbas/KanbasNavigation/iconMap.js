@@ -1,11 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { FaUserCircle } from 'react-icons/fa';
+
 
 import logo from './logo.png';
 
 const iconMap = {
   " ": <img src={logo} style={{ width: '75px', height: 'auto' }} />,
-  "Account": <FontAwesomeIcon icon={faUserCircle} style={{fontSize: "2rem", color: "grey"}} />,
+  "Account": <FaUserCircle style={{fontSize: "2rem", color: "grey"}} />,
   "Dashboard": <svg xmlns="http://www.w3.org/2000/svg"
                     className="ic-icon-svg ic-icon-svg--dashboard color"
                     version="1.1" x="0" y="0" viewBox="0 0 280 200"
