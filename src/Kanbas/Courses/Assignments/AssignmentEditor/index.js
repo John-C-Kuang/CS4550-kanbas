@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import db from "../../../Database";
 import {FaCheckCircle} from "react-icons/fa";
 import { MdMoreVert } from 'react-icons/md';
+import EditDetail from "./EditDetails";
 
 
 function AssignmentEditor() {
@@ -41,6 +42,10 @@ function AssignmentEditor() {
         <input value={assignment.title}
                className="form-control mb-2" />
 
+
+        <EditDetail/>
+
+
         <hr />
 
         <div className="row">
@@ -58,7 +63,9 @@ function AssignmentEditor() {
               <Link to={`/Kanbas/Courses/${courseId}/Assignments`}>
                 <button className="btn btn-secondary btn-light">Cancel</button>
               </Link>
-              <button className="btn btn-secondary btn-danger text-white">Save</button>
+              <Link to={`/Kanbas/Courses/${courseId}/Assignments`}>
+                <button className="btn btn-secondary btn-danger text-white">Save</button>
+              </Link>
             </div>
           </div>
         </div>
