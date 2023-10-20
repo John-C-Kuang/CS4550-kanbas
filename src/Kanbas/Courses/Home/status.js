@@ -1,9 +1,21 @@
 import React from "react";
-import {FaRegCalendarAlt} from 'react-icons/fa';
+import {FaRegCalendarAlt, FaCheckCircle, FaBan} from 'react-icons/fa';
 
 function Status() {
   return (
       <div className="col-3">
+
+        <h5>Course Status</h5>
+
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-secondary btn-light">
+            <FaBan /> Unpublish
+          </button>
+          <button className="btn btn-secondary btn-light">
+            <FaCheckCircle className="text-success" /> Published
+          </button>
+        </div>
+
         <div className="mb-2"></div>
 
         <button className="btn btn-secondary btn-light w-100">
