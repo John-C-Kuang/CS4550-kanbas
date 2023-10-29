@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Add from "./Add";
 import ClickEvent from "./ClickEvent";
 import PassingFunctions from "./PassingFunctions";
@@ -20,9 +21,18 @@ const Assignment4 = () => {
     alert("Hello");
   }
 
+  const { todos } = useSelector((state) => state.todosReducer);
+
   return(
       <>
         <h1>Assignment 4</h1>
+        <ul className="list-group">
+          {todos.map((todo) => (
+              <li className="list-group-item" key={todo.id}>
+                {todo.title}
+              </li>
+          ))}
+        </ul>
         <ReduxExamples/>
         <ParentStateComponent/>
         <ChildStateComponent/>
