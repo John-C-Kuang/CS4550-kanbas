@@ -1,38 +1,20 @@
-import React, {useState} from "react";
+import React from "react";
 import {useParams} from "react-router-dom";
-import db from "../../Database";
 import {FaEllipsisV, FaCaretDown, FaCheckCircle, FaPlus} from 'react-icons/fa';
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+} from "./modulesReducer";
 
 function ModuleList() {
 
   const {courseId} = useParams();
-  const [modules, setModules] = useState(db.modules);
-  const [module, setModule] = useState({
-    name: "New Module",
-    description: "New Description",
-    course: courseId,
-  });
-  const addModule = (module) => {
-    setModules([
-      { ...module, _id: new Date().getTime().toString() },
-      ...modules,
-    ]);
-  };
-  const deleteModule = (moduleId) => {
-    setModules(modules.filter(
-        (module) => module._id !== moduleId));
-  };
-  const updateModule = () => {
-    setModules(
-        modules.map((m) => {
-          if (m._id === module._id) {
-            return module;
-          } else {
-            return m;
-          }
-        })
-    );
-  }
+  const modules = useSelector((state) => state.modulesReducer.modules);
+  const module = useSelector((state) => state.modulesReducer.module);
+  const dispatch = useDispatch();
 
   return (
       <ul className="list-group mt-2">
@@ -58,10 +40,14 @@ function ModuleList() {
               />
             </div>
             <div className="col-3 d-flex align-items-center">
-              <button className="btn btn-secondary btn-success" onClick={() => { addModule(module) }}>
+              <button
+                  className="btn btn-secondary btn-success"
+                  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>>
                 Add
               </button>
-              <button className="btn btn-secondary btn-warning" onClick={updateModule}>
+              <button
+                  className="btn btn-secondary btn-warning"
+                  onClick={() => dispatch(updateModule(module))}>
                 Update
               </button>
 
@@ -88,12 +74,16 @@ function ModuleList() {
                     <FaEllipsisV className="me-1"/>
 
                     {/*Edit Module*/}
-                    <button className="btn btn-sm btn-warning me-1" onClick={(event) => { setModule(module); }}>
+                    <button
+                        className="btn btn-sm btn-warning me-1"
+                        onClick={() => dispatch(setModule(module))}>
                       Edit
                     </button>
 
                     {/*Delete Module*/}
-                    <button className="btn btn-sm btn-danger" onClick={() => deleteModule(module._id)}>
+                    <button
+                        className="btn btn-sm btn-danger"
+                        onClick={() => dispatch(deleteModule(module._id))}>
                       Delete
                     </button>
 
