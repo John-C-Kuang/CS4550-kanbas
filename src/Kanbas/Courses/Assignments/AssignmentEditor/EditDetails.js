@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaTimes, FaPlus } from 'react-icons/fa';
 
-function EditDetail() {
+function EditDetail({ id, title, course }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleDropdownToggle = () => {

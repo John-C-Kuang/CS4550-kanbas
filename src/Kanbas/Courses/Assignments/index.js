@@ -15,7 +15,7 @@ function Assignments() {
       <div className="col-8">
 
 
-        <TopButtons/>
+        <TopButtons courseId={courseId}/>
 
         <ul className="list-group mt-5">
 

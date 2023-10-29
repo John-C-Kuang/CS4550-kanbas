@@ -42,7 +42,7 @@ function ModuleList() {
             <div className="col-3 d-flex align-items-center">
               <button
                   className="btn btn-secondary btn-success"
-                  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>>
+                  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
                 Add
               </button>
               <button

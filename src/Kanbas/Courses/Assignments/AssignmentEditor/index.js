@@ -1,23 +1,32 @@
 import React from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import {useNavigate, useParams, Link} from "react-router-dom";
 import db from "../../../Database";
 import {FaCheckCircle} from "react-icons/fa";
-import { MdMoreVert } from 'react-icons/md';
+import {MdMoreVert} from 'react-icons/md';
 import EditDetail from "./EditDetails";
+import {updateModule} from "../../Modules/modulesReducer";
+import {useDispatch} from "react-redux";
+import {
+  addOrEditAssignments,
+  deleteAssignments,
+  setAssignments
+} from "../AssignmentReducer";
 
-
-function AssignmentEditor() {
-  const { assignmentId } = useParams();
-  const assignment = db.assignments.find(
-      (assignment) => assignment._id === assignmentId);
-
-
-  const { courseId } = useParams();
+function AssignmentEditor({}) {
+  const {assignmentId} = useParams();
+  const {courseId} = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const assignment = assignmentId === "Create"
+      ? {"_id": null, "title": "New Assignment Title", "course": courseId}
+      : db.assignments.find((assignment) => assignment._id === assignmentId);
+
   const handleSave = () => {
     console.log("Actually saving assignment TBD in later assignments");
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
+
   return (
       <div className="col-8">
 
@@ -27,11 +36,11 @@ function AssignmentEditor() {
               className="btn btn-secondary btn-light"
               style={{color: "green"}}
           >
-            <FaCheckCircle className="text-success" /> Published
+            <FaCheckCircle className="text-success"/> Published
 
           </button>
           <button className="btn btn-secondary btn-light">
-            <MdMoreVert />
+            <MdMoreVert/>
           </button>
         </div>
 
@@ -40,19 +49,25 @@ function AssignmentEditor() {
 
         <h5>Assignment Name</h5>
         <input value={assignment.title}
-               className="form-control mb-2" />
+               className="form-control mb-2"
+               onChange={(e) => setAssignments({
+                 ...assignment, title: e.target.value
+               })}
+               placeholder="New Assignment"/>
 
 
         <EditDetail/>
 
 
-        <hr />
+        <hr/>
 
         <div className="row">
           <div className="col-8">
             <div className="form-check">
-              <input className="form-check-input" type="checkbox" id="notify-users-of-changes" />
-              <label className="form-check-label" htmlFor="notify-users-of-changes">
+              <input className="form-check-input" type="checkbox"
+                     id="notify-users-of-changes"/>
+              <label className="form-check-label"
+                     htmlFor="notify-users-of-changes">
                 Notify users that this content has been changed
               </label>
             </div>
@@ -64,7 +79,11 @@ function AssignmentEditor() {
                 <button className="btn btn-secondary btn-light">Cancel</button>
               </Link>
               <Link to={`/Kanbas/Courses/${courseId}/Assignments`}>
-                <button className="btn btn-secondary btn-danger text-white">Save</button>
+                <button
+                    className="btn btn-secondary btn-danger text-white"
+                    onClick={() => dispatch(addOrEditAssignments(assignment))}>
+                  Save
+                </button>
               </Link>
             </div>
           </div>
@@ -72,6 +91,5 @@ function AssignmentEditor() {
       </div>
   );
 }
-
 
 export default AssignmentEditor;
