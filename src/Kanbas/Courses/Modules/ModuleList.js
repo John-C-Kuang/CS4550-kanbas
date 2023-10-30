@@ -32,9 +32,9 @@ function ModuleList() {
               />
               <textarea
                   value={module.description}
-                  onChange={(e) => setModule({
+                  onChange={(e) => dispatch(setModule({
                     ...module, description: e.target.value
-                  })}
+                  }))}
                   className="form-control flex-grow-1 ms-2"
                   placeholder="New Description"
               />

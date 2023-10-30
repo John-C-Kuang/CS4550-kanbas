@@ -1,16 +1,19 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaEllipsisV, FaCaretDown, FaCheckCircle, FaPlus, FaBook } from 'react-icons/fa';
-import db from "../../Database";
 import TopButtons from "./TopButtons";
 import AssignmentEntry from "./AssignmentEntry";
+import {useDispatch, useSelector} from "react-redux";
+import {setAssignment} from "./AssignmentReducer";
 
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignments = db.assignments;
+  const dispatch = useDispatch();
+  const assignments = useSelector((state) => state.assignmentReducer.assignments)
   const courseAssignments = assignments.filter(
       (assignment) => assignment.course === courseId);
+
   return (
       <div className="col-8">
 
@@ -41,7 +44,8 @@ function Assignments() {
                 <Link
                     key={assignment._id}
                     to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
-                    className="list-group-item">
+                    className="list-group-item"
+                    onClick={() => dispatch(setAssignment(assignment))}>
 
                   <AssignmentEntry
                       id={assignment._id}

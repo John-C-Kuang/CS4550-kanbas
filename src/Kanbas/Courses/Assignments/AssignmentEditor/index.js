@@ -4,23 +4,19 @@ import db from "../../../Database";
 import {FaCheckCircle} from "react-icons/fa";
 import {MdMoreVert} from 'react-icons/md';
 import EditDetail from "./EditDetails";
-import {updateModule} from "../../Modules/modulesReducer";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {
   addOrEditAssignments,
   deleteAssignments,
-  setAssignments
+  setAssignment
 } from "../AssignmentReducer";
 
-function AssignmentEditor({}) {
-  const {assignmentId} = useParams();
+function AssignmentEditor() {
   const {courseId} = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const assignment = useSelector((state) => state.assignmentReducer.assignment)
 
-  const assignment = assignmentId === "Create"
-      ? {"_id": null, "title": "New Assignment Title", "course": courseId}
-      : db.assignments.find((assignment) => assignment._id === assignmentId);
 
   const handleSave = () => {
     console.log("Actually saving assignment TBD in later assignments");
@@ -50,9 +46,11 @@ function AssignmentEditor({}) {
         <h5>Assignment Name</h5>
         <input value={assignment.title}
                className="form-control mb-2"
-               onChange={(e) => setAssignments({
-                 ...assignment, title: e.target.value
-               })}
+               onChange={(e) =>
+                   dispatch(setAssignment({
+                   ...assignment, title: e.target.value
+                 }))
+               }
                placeholder="New Assignment"/>
 
 

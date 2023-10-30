@@ -3,11 +3,11 @@ import db from "../../Database";
 
 const initialState = {
   assignments: db.assignments,
-  assignment: {name: "New Assignment 123", description: "New Description"},
+  assignment: {_id: null, course: "New Course ID", title: "New Title"},
 };
 
 const assignmentSlice = createSlice({
-  name: "assignment",
+  name: "assignments",
   initialState,
   reducers: {
     deleteAssignments: (state, action) => {
@@ -15,9 +15,13 @@ const assignmentSlice = createSlice({
           (assignments) => assignments._id !== action.payload
       );
     },
-    setAssignments: (state, action) => {
-      state.assignments = action.payload;
+
+    setAssignment: (state, action) => {
+      console.log(action.payload);
+      state.assignment = action.payload;
+      console.log(state.assignment)
     },
+
     addOrEditAssignments: (state, action) => {
       if (action.payload._id === null) {
         console.log("ADD")
@@ -25,13 +29,14 @@ const assignmentSlice = createSlice({
           {...action.payload, _id: new Date().getTime().toString()},
           ...state.assignments,
         ];
+        console.log(state.assignments)
       } else {
         console.log("UPDATE")
-        state.assignments = state.assignments.map((assignments) => {
-          if (assignments._id === action.payload._id) {
+        state.assignments = state.assignments.map((assignment) => {
+          if (assignment._id === action.payload._id) {
             return action.payload;
           } else {
-            return assignments;
+            return assignment;
           }
         });
       }
@@ -42,6 +47,6 @@ const assignmentSlice = createSlice({
 export const {
   addOrEditAssignments,
   deleteAssignments,
-  setAssignments
+  setAssignment
 } = assignmentSlice.actions;
 export default assignmentSlice.reducer;

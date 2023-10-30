@@ -1,8 +1,14 @@
 import {FaEllipsisV, FaPlus} from "react-icons/fa";
 import React from "react";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {setAssignment} from "./AssignmentReducer";
 
 function TopButtons({courseId}) {
+  const dispatch = useDispatch()
+  const defaultAssignment = {
+    _id: null, title: "New Title", course: courseId
+  }
   return (
       <>
         <div className="input-group float-end w-50 px-2"
@@ -17,7 +23,9 @@ function TopButtons({courseId}) {
           <Link
               key={"New"}
               to={`/Kanbas/Courses/${courseId}/Assignments/Create`}
-              className="text-white">
+              className="text-white"
+              onClick={() => dispatch(setAssignment(defaultAssignment))}
+          >
 
             <button className="btn btn-danger">
               <FaPlus className="text-white"
