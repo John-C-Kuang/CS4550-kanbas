@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { FaEllipsisV, FaCaretDown, FaCheckCircle, FaPlus, FaBook } from 'react-icons/fa';
+import { FaEllipsisV, FaCaretDown, FaCheckCircle, FaPlus } from 'react-icons/fa';
 import TopButtons from "./TopButtons";
 import AssignmentEntry from "./AssignmentEntry";
 import {useDispatch, useSelector} from "react-redux";
@@ -16,7 +16,6 @@ function Assignments() {
 
   return (
       <div className="col-8">
-
 
         <TopButtons courseId={courseId}/>
 
@@ -51,6 +50,7 @@ function Assignments() {
                       id={assignment._id}
                       course={assignment.course}
                       title={assignment.title}
+                      assignment={assignment._id}
                   />
 
 

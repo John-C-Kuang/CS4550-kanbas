@@ -1,14 +1,12 @@
 import React from "react";
 import {useNavigate, useParams, Link} from "react-router-dom";
-import db from "../../../Database";
 import {FaCheckCircle} from "react-icons/fa";
 import {MdMoreVert} from 'react-icons/md';
 import EditDetail from "./EditDetails";
 import {useDispatch, useSelector} from "react-redux";
 import {
   addOrEditAssignments,
-  deleteAssignments,
-  setAssignment
+  setAssignment,
 } from "../AssignmentReducer";
 
 function AssignmentEditor() {

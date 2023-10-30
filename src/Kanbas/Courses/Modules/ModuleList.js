@@ -24,9 +24,9 @@ function ModuleList() {
             <div className="d-flex justify-content-between mb-2 col-9">
               <input
                   value={module.name}
-                  onChange={(e) => setModule({
+                  onChange={(e) => dispatch(setModule({
                     ...module, name: e.target.value
-                  })}
+                  }))}
                   className="form-control me-2 flex-grow-1"
                   placeholder="New Module"
               />
