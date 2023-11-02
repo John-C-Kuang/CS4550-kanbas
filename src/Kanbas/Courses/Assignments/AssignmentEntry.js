@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import {deleteAssignment} from "./AssignmentReducer";
 
-function AssignmentEntry({ title, id, course, assignment }) {
+function AssignmentEntry({ title, id, course }) {
   const dispatch = useDispatch()
   return (
       <li className="list-group-item list-group-item-action should-diplay-green-bar">
@@ -24,9 +24,9 @@ function AssignmentEntry({ title, id, course, assignment }) {
                 className="btn btn-sm btn-danger"
                 onClick={(e) => {
                   e.preventDefault()
-                  const userResponse = window.confirm(`Do you want to delete this assignment ${assignment.id}`);
+                  const userResponse = window.confirm(`Do you want to delete this assignment ${id}`);
                   if (userResponse) {
-                    dispatch(deleteAssignment(assignment))
+                    dispatch(deleteAssignment(id))
                   }
                 }}>
               Delete

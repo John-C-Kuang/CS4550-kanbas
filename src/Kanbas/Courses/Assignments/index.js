@@ -50,7 +50,6 @@ function Assignments() {
                       id={assignment._id}
                       course={assignment.course}
                       title={assignment.title}
-                      assignment={assignment._id}
                   />
 
 
