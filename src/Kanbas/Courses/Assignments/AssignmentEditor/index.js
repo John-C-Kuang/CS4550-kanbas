@@ -51,8 +51,17 @@ function AssignmentEditor() {
                }
                placeholder="New Assignment"/>
 
+        <textarea value={assignment.description}
+                  className="form-control mb-2"
+                  onChange={(e) =>
+                      dispatch(setAssignment({
+                        ...assignment, description: e.target.value
+                      }))
+                  }
+        />
 
-        <EditDetail/>
+
+        <EditDetail assignment={assignment}/>
 
 
         <hr/>

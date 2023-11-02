@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { FaTimes, FaPlus } from 'react-icons/fa';
+import {setAssignment} from "../AssignmentReducer";
+import {useDispatch} from "react-redux";
 
-function EditDetail({ id, title, course }) {
+function EditDetail({ assignment }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -171,20 +173,41 @@ function EditDetail({ id, title, course }) {
 
                 <span><b>Due</b></span>
                 <div className="w-100 bg-white border my-2">
-                  <input type="date" className="form-control"
-                         value="2023-09-08" />
+                  <input type="date"
+                         className="form-control"
+                         value={assignment.dueDate}
+                         onChange={(e) =>
+                             dispatch(setAssignment({
+                               ...assignment, dueDate: e.target.value
+                             }))
+                         }
+                  />
                 </div>
                 <div className="row">
                   <div className="col-6 justify-content-start">
                     <span><b>Available From</b></span>
-                    <input type="date" className="form-control"
-                           value="2023-09-06" />
+                    <input type="date"
+                           className="form-control"
+                           value={assignment.availableFromDate}
+                           onChange={(e) =>
+                               dispatch(setAssignment({
+                                 ...assignment, availableFromDate: e.target.value
+                               }))
+                           }
+                    />
                   </div>
 
                   <div className="col-6 justify-content-start">
                     <span><b>Until</b></span>
-                    <input type="date" className="form-control"
-                           value="2023-09-18" />
+                    <input type="date"
+                           className="form-control"
+                           value={assignment.availableUntilDate}
+                           onChange={(e) =>
+                               dispatch(setAssignment({
+                                 ...assignment, availableUntilDate: e.target.value
+                               }))
+                           }
+                    />
                   </div>
                 </div>
 

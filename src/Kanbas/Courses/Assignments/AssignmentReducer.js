@@ -3,7 +3,15 @@ import db from "../../Database";
 
 const initialState = {
   assignments: db.assignments,
-  assignment: {_id: null, course: "New Course ID", title: "New Title"},
+  assignment: {
+    _id: null,
+    course: "New Course ID",
+    title: "New Title",
+    description: "",
+    dueDate: "2000-01-01",
+    availableFromDate: "2000-01-01",
+    availableUntilDate: "2000-01-01",
+  },
 };
 
 const assignmentSlice = createSlice({
