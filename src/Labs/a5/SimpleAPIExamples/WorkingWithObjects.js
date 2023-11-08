@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 function WorkingWithObjects() {
 
@@ -10,7 +11,21 @@ function WorkingWithObjects() {
     completed: false,
     score: 0,
   });
-  const URL = "http://localhost:4000/a5/assignment"
+
+  const URL = "http://localhost:4000/a5/assignment";
+  const fetchAssignment = async () => {
+    const response = await axios.get(`${URL}`);
+    setAssignment(response.data);
+  };
+  const updateTitle = async () => {
+    const response = await axios
+    .get(`${URL}/title/${assignment.title}`);
+    setAssignment(response.data);
+  };
+
+  useEffect(() => {
+    fetchAssignment();
+  }, []);
 
   return (
       <div>
@@ -24,11 +39,13 @@ function WorkingWithObjects() {
           Update Title
         </a>
         <input
-            onChange={(e) => setAssignment({ ...assignment,
-              title: e.target.value })}
+            onChange={(e) => setAssignment({
+              ...assignment,
+              title: e.target.value
+            })}
             value={assignment.title}
             className="form-control mb-2 w-75"
-            type="text" />
+            type="text"/>
 
         <a
             href={`${URL}/score/${assignment.score}`}
@@ -37,11 +54,13 @@ function WorkingWithObjects() {
           Update Score
         </a>
         <input
-            onChange={(e) => setAssignment({ ...assignment,
-              score: e.target.value })}
+            onChange={(e) => setAssignment({
+              ...assignment,
+              score: e.target.value
+            })}
             value={assignment.score}
             className="form-control mb-2 w-75"
-            type="text" />
+            type="text"/>
 
         <a
             href={`${URL}/completed/${assignment.completed}`}
@@ -50,11 +69,13 @@ function WorkingWithObjects() {
           Update Completed
         </a>
         <input
-            onChange={(e) => setAssignment({ ...assignment,
-              completed: e.target.value })}
+            onChange={(e) => setAssignment({
+              ...assignment,
+              completed: e.target.value
+            })}
             value={assignment.completed.toString()}
             className="form-control mb-2 w-75"
-            type="text" />
+            type="text"/>
 
         <h4>Retrieving Objects</h4>
         <a href="http://localhost:4000/a5/assignment"
@@ -67,6 +88,16 @@ function WorkingWithObjects() {
            className="btn btn-primary me-2">
           Get Title
         </a>
+
+        <button onClick={updateTitle}
+                className="w-100 btn btn-primary mb-2">
+          Update Title to: {assignment.title}
+        </button>
+        <button onClick={fetchAssignment}
+                className="w-100 btn btn-danger mb-2">
+          Fetch Assignment
+        </button>
+
 
       </div>
   );
