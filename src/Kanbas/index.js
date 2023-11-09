@@ -2,15 +2,26 @@ import KanbasNavigation from "./KanbasNavigation";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Courses from "./Courses";
-import { useState } from "react";
-import store from "./store";
+import {useEffect, useState} from "react";
 import { Provider } from "react-redux";
+import store from "./store";
+import axios from "axios";
 
 import db from "./Database";
 
 function Kanbas() {
 
   const [courses, setCourses] = useState(db.courses);
+
+  const URL = "http://localhost:4000/api/courses";
+  const findAllCourses = async () => {
+    const response = await axios.get(URL);
+    setCourses(response.data);
+  };
+
+  useEffect(() => {
+    findAllCourses();
+  }, []);
 
   const [course, setCourse] = useState({
     name: "New Course",
@@ -19,19 +30,27 @@ function Kanbas() {
     endDate: "2023-12-15",
   });
 
-  const addNewCourse = () => {
+  const addNewCourse = async () => {
+    const response = await axios.post(URL, course);
     setCourses(
         [
           ...courses,
-          {...course, _id: new Date().getTime()},
+          response.data,
         ]);
+    setCourse({ name: "" })
   };
 
-  const deleteCourse = (courseId) => {
+  const deleteCourse = async (courseId) => {
+    const response = await axios.delete(`${URL}/${courseId}`);
+    console.log(response)
     setCourses(courses.filter((course) => course._id !== courseId));
   };
 
-  const updateCourse = () => {
+  const updateCourse = async () => {
+    const response = await axios.put(
+        `${URL}/${course._id}`,
+        course
+    );
     setCourses(
         courses.map((c) => {
           if (c._id === course._id) {
@@ -59,7 +78,7 @@ function Kanbas() {
                   deleteCourse={deleteCourse}
                   updateCourse={updateCourse}/>
             } />
-            <Route path="Courses/:courseId/*" element={<Courses courses={courses}/>} />
+            <Route path="Courses/:courseId/*" element={<Courses/>} />
           </Routes>
         </div>
       </Provider>

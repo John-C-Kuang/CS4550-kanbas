@@ -1,4 +1,5 @@
-import db from "../../Kanbas/Database";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Navigate,
   Route,
@@ -14,12 +15,27 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 
-function Courses({ courses }) {
+function Courses() {
   const {courseId} = useParams();
   const location = useLocation();
   const courseNavSelected = location.pathname.split('/').pop().replace(/%20/g, ' ');
 
-  const course = courses.find((course) => course._id === courseId);
+  // const course = courses.find((course) => course._id === courseId);
+
+  const URL = "http://localhost:4000/api/courses";
+  const [course, setCourse] = useState({});
+
+  const findCourseById = async (courseId) => {
+    const response = await axios.get(
+        `${URL}/${courseId}`
+    );
+    setCourse(response.data);
+  };
+
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
+
   return (
       <div className="flex-grow-1">
         <TopBar course={course} subpath={courseNavSelected}/>
