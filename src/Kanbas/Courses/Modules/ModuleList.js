@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {FaEllipsisV, FaCaretDown, FaCheckCircle, FaPlus} from 'react-icons/fa';
-import { useSelector, useDispatch } from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {
   addModule,
   deleteModule,
   updateModule,
   setModule,
+  setModules,
 } from "./modulesReducer";
+import * as client from "./client";
 
 function ModuleList() {
 
@@ -15,12 +17,38 @@ function ModuleList() {
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
+  const handleAddModule = () => {
+    client.createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+  const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
+
+
+  useEffect(() => {
+    client.findModulesForCourse(courseId)
+    .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
+
 
   return (
       <ul className="list-group mt-2">
 
         <li className="list-group-item">
-          <div className="d-flex row align-content-center justify-content-center">
+          <div
+              className="d-flex row align-content-center justify-content-center">
             <div className="d-flex justify-content-between mb-2 col-9">
               <input
                   value={module.name}
@@ -42,12 +70,12 @@ function ModuleList() {
             <div className="col-3 d-flex align-items-center">
               <button
                   className="btn btn-secondary btn-success"
-                  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
+                  onClick={handleAddModule}>
                 Add
               </button>
               <button
                   className="btn btn-secondary btn-warning"
-                  onClick={() => dispatch(updateModule(module))}>
+                  onClick={() => handleUpdateModule(module)}>
                 Update
               </button>
 
@@ -83,7 +111,7 @@ function ModuleList() {
                     {/*Delete Module*/}
                     <button
                         className="btn btn-sm btn-danger"
-                        onClick={() => dispatch(deleteModule(module._id))}>
+                        onClick={() => handleDeleteModule(module._id)}>
                       Delete
                     </button>
 
