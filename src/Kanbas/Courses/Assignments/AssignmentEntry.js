@@ -1,10 +1,22 @@
 import { FaBook, FaCheckCircle, FaEllipsisV } from "react-icons/fa";
 import React from "react";
 import { useDispatch } from "react-redux";
-import {deleteAssignment} from "./AssignmentReducer";
+import { deleteAssignment } from "./AssignmentReducer";
+import * as client from "./client";
 
 function AssignmentEntry({ title, id, course }) {
   const dispatch = useDispatch()
+
+  const handleDeleteAssignment = (e) => {
+    e.preventDefault()
+    const userResponse = window.confirm(`Do you want to delete this assignment ${id}`);
+    if (userResponse) {
+      client.deleteAssignment(id).then((status) => {
+        dispatch(deleteAssignment(id))
+      })
+    }
+  }
+
   return (
       <li className="list-group-item list-group-item-action should-diplay-green-bar">
         <div className="row">
@@ -22,13 +34,7 @@ function AssignmentEntry({ title, id, course }) {
             <FaEllipsisV />
             <button
                 className="btn btn-sm btn-danger"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const userResponse = window.confirm(`Do you want to delete this assignment ${id}`);
-                  if (userResponse) {
-                    dispatch(deleteAssignment(id))
-                  }
-                }}>
+                onClick={handleDeleteAssignment}>
               Delete
             </button>
           </div>

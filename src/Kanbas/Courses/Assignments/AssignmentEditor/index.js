@@ -5,9 +5,12 @@ import {MdMoreVert} from 'react-icons/md';
 import EditDetail from "./EditDetails";
 import {useDispatch, useSelector} from "react-redux";
 import {
-  addOrEditAssignments,
+  addAssignments,
+  editAssignments,
   setAssignment,
 } from "../AssignmentReducer";
+import * as client from "../client";
+import {updateAssignment} from "../client";
 
 function AssignmentEditor() {
   const {courseId} = useParams();
@@ -15,11 +18,22 @@ function AssignmentEditor() {
   const dispatch = useDispatch();
   const assignment = useSelector((state) => state.assignmentReducer.assignment)
 
-
   const handleSave = () => {
     console.log("Actually saving assignment TBD in later assignments");
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
+
+  const handleAddorEditAssignment = () => {
+    if (assignment._id == null) {
+      client.createAssignment(courseId, assignment).then((newAssignment) => {
+        dispatch(addAssignments(newAssignment))
+      })
+    } else {
+      client.updateAssignment(assignment).then((status) => {
+        dispatch(editAssignments(assignment))
+      })
+    }
+  }
 
   return (
       <div className="col-8">
@@ -46,8 +60,8 @@ function AssignmentEditor() {
                className="form-control mb-2"
                onChange={(e) =>
                    dispatch(setAssignment({
-                   ...assignment, title: e.target.value
-                 }))
+                     ...assignment, title: e.target.value
+                   }))
                }
                placeholder="New Assignment"/>
 
@@ -86,7 +100,7 @@ function AssignmentEditor() {
               <Link to={`/Kanbas/Courses/${courseId}/Assignments`}>
                 <button
                     className="btn btn-secondary btn-danger text-white"
-                    onClick={() => dispatch(addOrEditAssignments(assignment))}>
+                    onClick={handleAddorEditAssignment}>
                   Save
                 </button>
               </Link>

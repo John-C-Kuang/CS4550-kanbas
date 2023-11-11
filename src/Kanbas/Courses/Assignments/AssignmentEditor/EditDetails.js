@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import {setAssignment} from "../AssignmentReducer";
-import {useDispatch} from "react-redux";
+import { setAssignment } from "../AssignmentReducer";
+import { useDispatch } from "react-redux";
 
 function EditDetail({ assignment }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
