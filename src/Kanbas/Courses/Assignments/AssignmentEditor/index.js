@@ -10,7 +10,6 @@ import {
   setAssignment,
 } from "../AssignmentReducer";
 import * as client from "../client";
-import {updateAssignment} from "../client";
 
 function AssignmentEditor() {
   const {courseId} = useParams();
