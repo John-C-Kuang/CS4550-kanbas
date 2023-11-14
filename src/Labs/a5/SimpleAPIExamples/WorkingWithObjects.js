@@ -27,6 +27,10 @@ function WorkingWithObjects() {
     fetchAssignment();
   }, []);
 
+  const BASE_URL = process.env.REACT_APP_API_BASE
+  const ASSIGNMENTS_URL = `${BASE_URL}`
+
+
   return (
       <div>
         <h3>Working With Objects</h3>
@@ -78,13 +82,13 @@ function WorkingWithObjects() {
             type="text"/>
 
         <h4>Retrieving Objects</h4>
-        <a href="http://localhost:4000/a5/assignment"
+        <a href={`${URL}/a5/assignment`}
            className="btn btn-primary me-2">
           Get Assignment
         </a>
 
         <h4>Retrieving Properties</h4>
-        <a href="http://localhost:4000/a5/assignment/title"
+        <a href={`${URL}/a5/assignment/title`}
            className="btn btn-primary me-2">
           Get Title
         </a>
