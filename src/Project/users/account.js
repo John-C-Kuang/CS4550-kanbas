@@ -19,6 +19,11 @@ function Account() {
     setAccount(user);
   };
 
+  const signout = async () => {
+    await client.signout();
+    navigate("/project/signin");
+  };
+
   useEffect(() => {
     if (id) {
       findUserById(id);
@@ -68,6 +73,10 @@ function Account() {
               </select>
               <button className="btn btn-info w-100" onClick={save}>
                 Save
+              </button>
+
+              <button onClick={signout} className="btn btn-danger w-100">
+                Signout
               </button>
 
               <Link to="/project/admin/users" className="btn btn-warning w-100">
